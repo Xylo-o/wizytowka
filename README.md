@@ -1,0 +1,10 @@
+# Wizytowka
+
+Prosty projekt stronki-wizytowki w HTML i CSS. Zawiera podstawowy szablon z sekcja o nas i formularzem kontaktowym.
+
+## Uruchomienie
+
+1. Sklonuj repozytorium.
+2. Otworz plik `index.html` w przegladarce.
+
+W katalogu `scripts` mozesz umieszczac przyszle skrypty JS lub PHP.
