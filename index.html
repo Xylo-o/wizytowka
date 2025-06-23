@@ -33,6 +33,51 @@
         
         Booking & Scheduling: Beauty appointments, car service, restaurant reservations — even on short notice.</p>
     </section>
+    <section class="services">
+      <h2>Our Services</h2>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 1">
+        <div class="service-text">
+          <h3>Category 1</h3>
+          <p>Short description for category 1.</p>
+        </div>
+      </div>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 2">
+        <div class="service-text">
+          <h3>Category 2</h3>
+          <p>Short description for category 2.</p>
+        </div>
+      </div>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 3">
+        <div class="service-text">
+          <h3>Category 3</h3>
+          <p>Short description for category 3.</p>
+        </div>
+      </div>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 4">
+        <div class="service-text">
+          <h3>Category 4</h3>
+          <p>Short description for category 4.</p>
+        </div>
+      </div>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 5">
+        <div class="service-text">
+          <h3>Category 5</h3>
+          <p>Short description for category 5.</p>
+        </div>
+      </div>
+      <div class="service-item hidden">
+        <img src="resources/img/categories.png" alt="Service 6">
+        <div class="service-text">
+          <h3>Category 6</h3>
+          <p>Short description for category 6.</p>
+        </div>
+      </div>
+    </section>
     <section class="contact">
       <h2>Contact</h2>
       <form class="contact-form" action="#" method="post">
@@ -46,5 +91,19 @@
       </form>
     </section>
   </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const items = document.querySelectorAll('.service-item');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(item => observer.observe(item));
+    });
+  </script>
 </body>
 </html>
