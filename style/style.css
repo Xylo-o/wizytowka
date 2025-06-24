@@ -4,14 +4,28 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(to bottom, #3B82F6, #ffffff);
+  background: linear-gradient(to bottom, #002b51, #ffffff);
 }
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #3B82F6, rgba(59,130,246,0));
+  background: linear-gradient(to bottom, #002b51, rgba(0,43,81,0));
 }
-header img { max-width: 150px; height: auto; }
+header img {
+  max-width: 150px;
+  height: auto;
+  opacity: 0;
+  animation: fadeLogo 1s forwards;
+}
+.header-text {
+  text-align: right;
+  margin-left: 20px;
+  opacity: 0;
+  animation: fadeText 1s forwards;
+  animation-delay: 1s;
+}
 main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
 .hero { text-align: center; margin-bottom: 40px; }
 .hero h1 { font-size: 2rem; margin-bottom: 10px; }
@@ -25,15 +39,15 @@ main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
   margin-bottom: 20px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 .service-item.show {
   opacity: 1;
   transform: translateY(0);
 }
 .service-item img {
-  width: 120px;
-  height: 120px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   margin-right: 20px;
 }
@@ -49,3 +63,13 @@ main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
 }
 footer { background: #333; color: #fff; text-align: center; padding: 20px; }
 footer a { color: #fff; text-decoration: none; margin: 0 5px; }
+
+@keyframes fadeLogo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeText {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
