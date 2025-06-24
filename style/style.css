@@ -36,3 +36,5 @@ main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.5rem; }
 }
+footer { background: #333; color: #fff; text-align: center; padding: 20px; }
+footer a { color: #fff; text-decoration: none; margin: 0 5px; }
