@@ -1,7 +1,10 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
   line-height: 1.6;
   color: #000;
   background: linear-gradient(to bottom, #afd7fc, #ffffff);
@@ -25,7 +28,8 @@ header img {
   text-align: right;
   margin-left: 10px;
   color: #fff;
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
   opacity: 0;
   animation: fadeText 1s forwards;
   animation-delay: 1s;
@@ -45,6 +49,7 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 .services h2 {
   font-size: 5.5rem;
   margin-bottom: 20px;
+  font-weight: 600;
   background: linear-gradient(to right, #002b51, #b8dafa);
   -webkit-background-clip: text;
   background-clip: text;
@@ -62,6 +67,12 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   opacity: 0;
   font-size: 1.5rem;
   animation: fadeIn 1s forwards;
+}
+.about-desc {
+  background: #002b51;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
 }
 .about-desc p:nth-child(1) { animation-delay: 1s; }
 .about-desc p:nth-child(2) { animation-delay: 3s; margin-top: 20px}
