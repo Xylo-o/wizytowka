@@ -68,12 +68,6 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   font-size: 1.5rem;
   animation: fadeIn 1s forwards;
 }
-.about-desc {
-  background: #002b51;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-}
 .about-desc p:nth-child(1) { animation-delay: 1s; }
 .about-desc p:nth-child(2) { animation-delay: 3s; margin-top: 20px}
 .services {
