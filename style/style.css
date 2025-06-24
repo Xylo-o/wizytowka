@@ -23,17 +23,36 @@ header img {
   text-align: right;
   margin-left: 10px;
   color: #fff;
+  font-family: "Trebuchet MS", Arial, sans-serif;
   opacity: 0;
   animation: fadeText 1s forwards;
   animation-delay: 1s;
 }
-main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 .hero { text-align: center; margin-bottom: 40px; }
 .hero h1 { font-size: 2rem; margin-bottom: 10px; }
 .hero p { font-size: 1.1rem; color: #666; }
 .about { margin-bottom: 40px; }
+.about h2,
+.services h2 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #002b51, #b8dafa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.about-title {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveLeft 2s forwards;
+}
+.about-text {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
+}
 .services { margin-bottom: 40px; }
-.services h2 { font-size: 2rem; margin-bottom: 20px; }
 .service-item {
   display: flex;
   align-items: center;
@@ -52,6 +71,12 @@ main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
   object-fit: cover;
   margin-right: 40px;
   border-radius: 12px;
+}
+.service-text {
+  background: #002b51;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
 }
 .service-text h3 { margin-bottom: 5px; font-size: 1.4rem; }
 .service-text p { font-size: 1.1rem; }
@@ -79,4 +104,14 @@ footer a { color: #fff; text-decoration: none; margin: 0 5px; }
 @keyframes fadeText {
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes moveLeft {
+  from { left: 50%; transform: translateX(-50%); }
+  to { left: 0; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
