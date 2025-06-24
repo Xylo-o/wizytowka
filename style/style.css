@@ -11,12 +11,28 @@ body {
   margin: 0;
 }
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 50px;
   background: linear-gradient(to bottom, #002b51, #b8dafa);
   margin: 0;
+}
+
+.language-switcher {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+}
+.language-switcher a {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+.language-switcher a.active {
+  text-decoration: underline;
 }
 header img {
   max-width: 200px;
