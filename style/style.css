@@ -36,14 +36,14 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 .hero p { font-size: 1.1rem; color: #666; }
 .about {
   margin-bottom: 40px;
-  min-height: 200vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .about h2,
 .services h2 {
-  font-size: 3.5rem;
+  font-size: 5.5rem;
   margin-bottom: 20px;
   background: linear-gradient(to right, #002b51, #b8dafa);
   -webkit-background-clip: text;
@@ -60,10 +60,11 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 }
 .about-desc p {
   opacity: 0;
+  font-size: 1.5rem;
   animation: fadeIn 1s forwards;
 }
-.about-desc p:nth-child(1) { animation-delay: 2s; }
-.about-desc p:nth-child(2) { animation-delay: 3s; }
+.about-desc p:nth-child(1) { animation-delay: 1s; }
+.about-desc p:nth-child(2) { animation-delay: 3s; margin-top: 20px}
 .services {
   margin-bottom: 40px;
   opacity: 0;
