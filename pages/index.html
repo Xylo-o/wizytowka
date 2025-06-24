@@ -87,12 +87,29 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const services = document.querySelector('.services');
       const items = document.querySelectorAll('.service-item');
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('show');
-        }, 2000 + index * 500);
-      });
+      let triggered = false;
+
+      function revealServices() {
+        services.classList.add('visible');
+        window.scrollTo({ top: services.offsetTop, behavior: 'smooth' });
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('show');
+          }, 500 + index * 500);
+        });
+      }
+
+      function handleScroll() {
+        if (!triggered && window.scrollY > 50) {
+          triggered = true;
+          window.removeEventListener('scroll', handleScroll);
+          revealServices();
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll);
     });
   </script>
 </body>
