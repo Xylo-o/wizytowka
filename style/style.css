@@ -39,6 +39,7 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   margin-bottom: 20px;
   background: linear-gradient(to right, #002b51, #b8dafa);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 .about-title,
