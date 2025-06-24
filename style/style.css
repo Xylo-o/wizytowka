@@ -34,7 +34,13 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 .hero { text-align: center; margin-bottom: 40px; }
 .hero h1 { font-size: 2rem; margin-bottom: 10px; }
 .hero p { font-size: 1.1rem; color: #666; }
-.about { margin-bottom: 40px; }
+.about {
+  margin-bottom: 40px;
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .about h2,
 .services h2 {
   font-size: 3.5rem;
@@ -58,7 +64,14 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 }
 .about-desc p:nth-child(1) { animation-delay: 2s; }
 .about-desc p:nth-child(2) { animation-delay: 3s; }
-.services { margin-bottom: 40px; }
+.services {
+  margin-bottom: 40px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.services.visible {
+  opacity: 1;
+}
 .service-item {
   display: flex;
   align-items: center;
