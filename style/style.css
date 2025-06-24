@@ -46,8 +46,8 @@ main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
   transform: translateY(0);
 }
 .service-item img {
-  width: 360px;
-  height: 360px;
+  width: 260px;
+  height: 260px;
   object-fit: cover;
   margin-right: 20px;
 }
