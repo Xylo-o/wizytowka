@@ -18,48 +18,49 @@
   <main>
     <section class="about">
       <h2 class="about-title">Who are we?</h2>
-      <p class="about-text">SPYRJA is a personal assistant service that helps individuals and businesses save time by handling everyday tasks. Whether it's organizing your schedule, managing errands, or coordinating services, SPYRJA is here to make your life easier.
-
-        SPYRJA is your trusted personal assistant, saving you time and stress by handling everyday tasks and errands.</p>
+      <div class="about-desc">
+        <p>SPYRJA is a personal assistant service that helps individuals and businesses save time by handling everyday tasks. Whether it's organizing your schedule, managing errands, or coordinating services, SPYRJA is here to make your life easier.</p>
+        <p>SPYRJA is your trusted personal assistant, saving you time and stress by handling everyday tasks and errands.</p>
+      </div>
     </section>
     <section class="services">
-      <h2>Our Services</h2>
-      <div class="service-item hidden">
+      <h2 class="services-title">Our Services</h2>
+      <div class="service-item">
         <img src="../resources/img/services/pet-care.png" alt="Service 1">
         <div class="service-text">
           <h3>Pet Care & Sercives</h3>
           <p>Whether it’s dog walking, pet sitting, or emergency vet visits, SPYRJA provides peace of mind for busy pet owners. We also take care of pet food pickups, medications, and grooming appointments.</p>
         </div>
       </div>
-      <div class="service-item hidden">
+      <div class="service-item">
         <img src="../resources/img/services/err-queue.png" alt="Service 2">
         <div class="service-text">
           <h3>Errands & Queuing</h3>
           <p>Skip the lines for packages, official paperwork, or laundry drop-offs — we handle it all.</p>
         </div>
       </div>
-      <div class="service-item hidden">
+      <div class="service-item">
         <img src="../resources/img/services/pickup-deliv.png" alt="Service 3">
         <div class="service-text">
           <h3>Pickup & Delivery</h3>
           <p>Fast, reliable courier service for documents, forgotten items, or special gift deliveries.</p>
         </div>
       </div>
-      <div class="service-item hidden">
+      <div class="service-item">
         <img src="../resources/img/services/shop.png" alt="Service 4">
         <div class="service-text">
           <h3>Shopping & Gift Handling</h3>
           <p>From last-minute gifts to wrapping and personalized notes, we turn tasks into thoughtful gestures.</p>
         </div>
       </div>
-      <div class="service-item hidden">
+      <div class="service-item">
         <img src="../resources/img/services/home-help.png" alt="Service 5">
         <div class="service-text">
           <h3>Home Help & Coordination</h3>
           <p>Need cleaners, handymen, or movers? We organize and supervise so you don’t have to.</p>
         </div>
       </div>
-      <div class="service-item hidden">
+      <div class="service-item">
         <img src="../resources/img/services/book.png" alt="Service 6">
         <div class="service-text">
           <h3>Booking & Scheduling</h3>
@@ -87,15 +88,11 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const items = document.querySelectorAll('.service-item');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      items.forEach(item => observer.observe(item));
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('show');
+        }, 2000 + index * 500);
+      });
     });
   </script>
 </body>

@@ -41,17 +41,20 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   -webkit-background-clip: text;
   color: transparent;
 }
-.about-title {
+.about-title,
+.services-title {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  animation: moveLeft 2s forwards;
+  opacity: 0;
+  animation: fadeMoveLeft 2s forwards;
 }
-.about-text {
+.about-desc p {
   opacity: 0;
   animation: fadeIn 1s forwards;
-  animation-delay: 2s;
 }
+.about-desc p:nth-child(1) { animation-delay: 2s; }
+.about-desc p:nth-child(2) { animation-delay: 3s; }
 .services { margin-bottom: 40px; }
 .service-item {
   display: flex;
@@ -109,6 +112,11 @@ footer a { color: #fff; text-decoration: none; margin: 0 5px; }
 @keyframes moveLeft {
   from { left: 50%; transform: translateX(-50%); }
   to { left: 0; transform: translateX(0); }
+}
+
+@keyframes fadeMoveLeft {
+  from { opacity: 0; left: 50%; transform: translateX(-50%); }
+  to { opacity: 1; left: 0; transform: translateX(0); }
 }
 
 @keyframes fadeIn {
