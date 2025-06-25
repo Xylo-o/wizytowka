@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail = new PHPMailer(true);
     try {
         $mail->setFrom('no-reply@spyrja.com', 'Spyrja Contact Form');
-        $mail->addAddress('contact@spyrja.com');
+        $mail->addAddress('samband@spyrja.com');
         $mail->addReplyTo($email, $name);
 
         $mail->Subject = 'New contact form submission';
