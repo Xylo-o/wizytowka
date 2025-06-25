@@ -154,9 +154,9 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   border-bottom-color: #002b51;
 }
 .contact-form button {
-  padding: 12px 20px;
+  padding: 12px 30px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   background: #002b51;
   color: #F2F1EB;
