@@ -84,12 +84,6 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   font-size: 1.5rem;
   animation: fadeIn 1s forwards;
 }
-.about-desc {
-  background: #002b51;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-}
 .about-desc p:nth-child(1) { animation-delay: 1s; }
 .about-desc p:nth-child(2) { animation-delay: 3s; margin-top: 20px}
 .services {
@@ -121,7 +115,7 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 }
 .service-text {
   background: #002b51;
-  color: #fff;
+  color: #F2F1EB;
   padding: 10px;
   border-radius: 8px;
 }
@@ -136,12 +130,12 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   .hero h1 { font-size: 1.5rem; }
 }
 footer {
-  background: linear-gradient(to bottom, #ffffff 0%, #333 20%);
+  background: linear-gradient(to bottom, #ffffff 0%, #333 23%);
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 30px;
 }
-footer a { color: #fff; text-decoration: none; margin: 0 5px; }
+footer a { color: #fff; text-decoration: underline; margin: 0 }
 
 @keyframes fadeLogo {
   from { opacity: 0; }
