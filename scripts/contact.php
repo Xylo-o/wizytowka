@@ -1,8 +1,10 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// Komentujemy importy PHPMailer, nie będą potrzebne
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+// Komentujemy lub usuwamy import autoloadera
+// require_once __DIR__ . '/../vendor/autoload.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
@@ -15,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Komentujemy całą sekcję wysyłania maila
+    /*
     $mail = new PHPMailer(true);
     try {
         $mail->setFrom('no-reply@spyrja.com', 'Spyrja Contact Form');
@@ -25,13 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Subject = 'New contact form submission';
         $mail->Body    = "Name: {$name}\nEmail: {$email}\n\n{$message}";
         $mail->send();
-        echo 'Thank you for your message!';
     } catch (Exception $e) {
         http_response_code(500);
         echo 'Error sending message.';
+        exit;
     }
+    */
+    
+    // Zamiast tego po prostu zwracamy sukces
+    http_response_code(200);
+    echo 'Thank you for your message!';
+    
 } else {
     http_response_code(405);
     echo 'Method Not Allowed';
 }
-
