@@ -10,10 +10,10 @@
 </head>
 <body>
   <header>
-    <img src="../resources/img/logo.png" alt="Logo">
+    <a href="index.html"><img src="../resources/img/logo.png" alt="Logo"></a>
     <div class="language-switcher">
-      <a href="index.html" class="active">English</a> |
-      <a href="index_is.html">Íslenska</a>
+      <a href="index_is.html">Íslenska</a> | 
+      <a href="index.html" class="active">English</a>
     </div>
     <div class="header-text">
       <h1>SPYRJA</h1>
@@ -31,42 +31,42 @@
     <section class="services">
       <h2 class="services-title">Our Services</h2>
       <div class="service-item">
-        <img src="../resources/img/services/pet-care.png" alt="Service 1">
+        <img src="../resources/img/services/en/pet-care.png" alt="Service 1">
         <div class="service-text">
           <h3>Pet Care & Sercives</h3>
           <p>Whether it’s dog walking, pet sitting, or emergency vet visits, SPYRJA provides peace of mind for busy pet owners. We also take care of pet food pickups, medications, and grooming appointments.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="../resources/img/services/err-queue.png" alt="Service 2">
+        <img src="../resources/img/services/en/err-queue.png" alt="Service 2">
         <div class="service-text">
           <h3>Errands & Queuing</h3>
           <p>Skip the lines for packages, official paperwork, or laundry drop-offs — we handle it all.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="../resources/img/services/pickup-deliv.png" alt="Service 3">
+        <img src="../resources/img/services/en/pickup-deliv.png" alt="Service 3">
         <div class="service-text">
           <h3>Pickup & Delivery</h3>
           <p>Fast, reliable courier service for documents, forgotten items, or special gift deliveries.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="../resources/img/services/shop.png" alt="Service 4">
+        <img src="../resources/img/services/en/shop.png" alt="Service 4">
         <div class="service-text">
           <h3>Shopping & Gift Handling</h3>
           <p>From last-minute gifts to wrapping and personalized notes, we turn tasks into thoughtful gestures.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="../resources/img/services/home-help.png" alt="Service 5">
+        <img src="../resources/img/services/en/home-help.png" alt="Service 5">
         <div class="service-text">
           <h3>Home Help & Coordination</h3>
           <p>Need cleaners, handymen, or movers? We organize and supervise so you don’t have to.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="../resources/img/services/book.png" alt="Service 6">
+        <img src="../resources/img/services/en/book.png" alt="Service 6">
         <div class="service-text">
           <h3>Booking & Scheduling</h3>
           <p>Beauty appointments, car service, restaurant reservations — even on short notice.</p>
@@ -75,7 +75,7 @@
     </section>
     <section class="contact">
       <h2>Contact</h2>
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form" id="contact-form" action="../scripts/contact.php" method="post">
         <label for="name">Name and surname:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">E-mail:</label>
@@ -84,16 +84,22 @@
         <textarea id="message" name="message" rows="5" required></textarea>
         <button type="submit">Submit</button>
       </form>
+      <div id="contact-success" class="contact-success hidden">
+        <div class="checkmark">&#10003;</div>
+        <p>Thank you for contacting us.</p>
+      </div>
     </section>
   </main>
   <footer>
-    <p>Contact us: <a href="mailto:contact@spyrja.com">contact@spyrja.com</a></p>
+    <p>Contact us: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
     <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="tos.html">Terms of Service</a></p>
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const services = document.querySelector('.services');
       const items = document.querySelectorAll('.service-item');
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('contact-success');
       let triggered = false;
 
       function revealServices() {
@@ -115,6 +121,23 @@
       }
 
       window.addEventListener('scroll', handleScroll);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch(form.action, { method: 'POST', body: data })
+          .then(resp => {
+            if (!resp.ok) throw new Error();
+            return resp.text();
+          })
+          .then(() => {
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+          })
+          .catch(() => {
+            alert('Error sending message.');
+          });
+      });
     });
   </script>
 </body>
