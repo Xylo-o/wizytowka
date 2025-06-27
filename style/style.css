@@ -191,6 +191,34 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.5rem; }
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  .language-switcher {
+    position: static;
+    margin-bottom: 10px;
+  }
+  .header-text {
+    text-align: center;
+    margin-left: 0;
+  }
+  header img {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+  .service-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+  }
 }
 footer {
   background: linear-gradient(to bottom, #ffffff 0%, #333 23%);
