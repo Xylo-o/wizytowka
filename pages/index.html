@@ -80,6 +80,16 @@
         <input type="text" id="name" name="name" required>
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option class="cat-pet-care">Pet Care &amp; Sercives</option>
+          <option class="cat-err-queue">Errands &amp; Queuing</option>
+          <option class="cat-pickup-deliv">Pickup &amp; Delivery</option>
+          <option class="cat-shopping">Shopping &amp; Gift Handling</option>
+          <option class="cat-home-help">Home Help &amp; Coordination</option>
+          <option class="cat-booking">Booking &amp; Scheduling</option>
+        </select>
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
         <button type="submit">Submit</button>

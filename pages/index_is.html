@@ -80,6 +80,16 @@
         <input type="text" id="name" name="name" required>
         <label for="email">Netfang:</label>
         <input type="email" id="email" name="email" required>
+        <label for="category">Flokkur:</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Veldu flokk</option>
+          <option class="cat-pet-care">Gæsla &amp; þjónusta dýra</option>
+          <option class="cat-err-queue">Erindi &amp; biðröð</option>
+          <option class="cat-pickup-deliv">Sókn &amp; afhending</option>
+          <option class="cat-shopping">Innkaup &amp; gjafaumsjón</option>
+          <option class="cat-home-help">Heimaþjónusta &amp; samhæfing</option>
+          <option class="cat-booking">Bókanir &amp; tímasetning</option>
+        </select>
         <label for="message">Skilaboð:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
         <button type="submit">Senda</button>
@@ -101,6 +111,16 @@
       const form = document.getElementById('contact-form');
       const success = document.getElementById('contact-success');
       let triggered = false;
+
+      // Custom validation messages in Icelandic
+      form.querySelectorAll('[required]').forEach(field => {
+        field.addEventListener('invalid', function () {
+          this.setCustomValidity('Þennan reit verður að fylla út');
+        });
+        field.addEventListener('input', function () {
+          this.setCustomValidity('');
+        });
+      });
 
       function revealServices() {
         services.classList.add('visible');
