@@ -139,7 +139,8 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   font-weight: 600;
 }
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   padding: 10px 5px;
   margin-bottom: 20px;
@@ -150,7 +151,8 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   transition: border-color 0.3s;
 }
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-bottom-color: #002b51;
 }
