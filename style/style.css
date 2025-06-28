@@ -149,6 +149,8 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   border-radius: 0;
   background: transparent;
   transition: border-color 0.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 .contact-form input:focus,
 .contact-form textarea:focus,
@@ -156,6 +158,24 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   outline: none;
   border-bottom-color: #002b51;
 }
+.contact-form option {
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 32px;
+  background-size: 20px 20px;
+}
+html[lang='en'] .contact-form option.cat-pet-care { background-image: url('../resources/img/services/en/pet-care.png'); }
+html[lang='en'] .contact-form option.cat-err-queue { background-image: url('../resources/img/services/en/err-queue.png'); }
+html[lang='en'] .contact-form option.cat-pickup-deliv { background-image: url('../resources/img/services/en/pickup-deliv.png'); }
+html[lang='en'] .contact-form option.cat-shopping { background-image: url('../resources/img/services/en/shop.png'); }
+html[lang='en'] .contact-form option.cat-home-help { background-image: url('../resources/img/services/en/home-help.png'); }
+html[lang='en'] .contact-form option.cat-booking { background-image: url('../resources/img/services/en/book.png'); }
+html[lang='is'] .contact-form option.cat-pet-care { background-image: url('../resources/img/services/is/pet-care-is.png'); }
+html[lang='is'] .contact-form option.cat-err-queue { background-image: url('../resources/img/services/is/errands-queue-is.png'); }
+html[lang='is'] .contact-form option.cat-pickup-deliv { background-image: url('../resources/img/services/is/pickup-deliv-is.png'); }
+html[lang='is'] .contact-form option.cat-shopping { background-image: url('../resources/img/services/is/shopping-is.png'); }
+html[lang='is'] .contact-form option.cat-home-help { background-image: url('../resources/img/services/is/home-help-is.png'); }
+html[lang='is'] .contact-form option.cat-booking { background-image: url('../resources/img/services/is/booking-is.png'); }
 .contact-form button {
   padding: 12px 30px;
   border: none;
