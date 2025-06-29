@@ -165,6 +165,7 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   font-weight: 500;
   font-family: 'Montserrat', Arial, sans-serif;
   line-height: 1.4;
+  resize: none;
 }
 .contact-form input:focus,
 .contact-form textarea:focus,
