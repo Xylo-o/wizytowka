@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spyrja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style/style.css">
+  <link rel="icon" href="/resources/img/logo.png">
+</head>
+<body>
+  <header>
+    <a href="/en/"><img src="/resources/img/logo.png" alt="Logo"></a>
+    <div class="language-switcher">
+      <a href="/is/">Íslenska</a> | 
+      <a href="/en/" class="active">English</a>
+    </div>
+    <div class="header-text">
+      <h1>SPYRJA</h1>
+      <p>Frees your time so you can focus on what matters most.</p>
+    </div>
+  </header>
+  <main>
+    <section class="about">
+      <h2 class="about-title">Who are we?</h2>
+      <div class="about-desc">
+        <p>SPYRJA is a personal assistant service that helps individuals and businesses save time by handling everyday tasks. Whether it's organizing your schedule, managing errands, or coordinating services, we are here to make your life easier.</p>
+        <p>It's your trusted personal assistant, saving you time and stress by handling everyday tasks and errands.</p>
+      </div>
+    </section>
+    <section class="services">
+      <h2 class="services-title">Our Services</h2>
+      <div class="service-item">
+        <img src="/resources/img/services/en/pet-care.png" alt="Service 1">
+        <div class="service-text">
+          <h3>Pet Care & Sercives</h3>
+          <p>Whether it’s dog walking, pet sitting, or emergency vet visits, SPYRJA provides peace of mind for busy pet owners. We also take care of pet food pickups, medications, and grooming appointments.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="/resources/img/services/en/err-queue.png" alt="Service 2">
+        <div class="service-text">
+          <h3>Errands & Queuing</h3>
+          <p>Skip the lines for packages, official paperwork, or laundry drop-offs — we handle it all.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="/resources/img/services/en/pickup-deliv.png" alt="Service 3">
+        <div class="service-text">
+          <h3>Pickup & Delivery</h3>
+          <p>Fast, reliable courier service for documents, forgotten items, or special gift deliveries.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="/resources/img/services/en/shop.png" alt="Service 4">
+        <div class="service-text">
+          <h3>Shopping & Gift Handling</h3>
+          <p>From last-minute gifts to wrapping and personalized notes, we turn tasks into thoughtful gestures.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="/resources/img/services/en/home-help.png" alt="Service 5">
+        <div class="service-text">
+          <h3>Home Help & Coordination</h3>
+          <p>Need cleaners, handymen, or movers? We organize and supervise so you don’t have to.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="/resources/img/services/en/book.png" alt="Service 6">
+        <div class="service-text">
+          <h3>Booking & Scheduling</h3>
+          <p>Beauty appointments, car service, restaurant reservations — even on short notice.</p>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <h2>Contact</h2>
+      <form class="contact-form" id="contact-form" action="/scripts/contact.php" method="post">
+        <label for="name">Name and surname:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option class="cat-pet-care">Pet Care &amp; Sercives</option>
+          <option class="cat-err-queue">Errands &amp; Queuing</option>
+          <option class="cat-pickup-deliv">Pickup &amp; Delivery</option>
+          <option class="cat-shopping">Shopping &amp; Gift Handling</option>
+          <option class="cat-home-help">Home Help &amp; Coordination</option>
+          <option class="cat-booking">Booking &amp; Scheduling</option>
+        </select>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="contact-success" class="contact-success hidden">
+        <div class="checkmark">&#10003;</div>
+        <p>Thank you for contacting us.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Contact us: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
+    <p><a href="/en/pp/">Privacy Policy</a> | <a href="/en/tos/">Terms of Service</a></p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const services = document.querySelector('.services');
+      const items = document.querySelectorAll('.service-item');
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('contact-success');
+      let triggered = false;
+
+      function revealServices() {
+        services.classList.add('visible');
+        window.scrollTo({ top: services.offsetTop, behavior: 'smooth' });
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('show');
+          }, 500 + index * 500);
+        });
+      }
+
+      function handleScroll() {
+        if (!triggered && window.scrollY > 50) {
+          triggered = true;
+          window.removeEventListener('scroll', handleScroll);
+          revealServices();
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch(form.action, { method: 'POST', body: data })
+          .then(resp => {
+            if (!resp.ok) throw new Error();
+            return resp.text();
+          })
+          .then(() => {
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+          })
+          .catch(() => {
+            alert('Error sending message.');
+          });
+      });
+    });
+  </script>
+</body>
+</html>
