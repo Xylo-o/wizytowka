@@ -1,2 +1,2 @@
 # Ignore user specific environment file
-local_test/.env
+.env

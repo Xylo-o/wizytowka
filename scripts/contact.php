@@ -1,66 +1,125 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-/**
- * Load environment variables from local_test/.env if present.
- */
-function get_env(string $key, $default = null) {
-    static $vars;
-    if ($vars === null) {
-        $file = __DIR__ . '/../local_test/.env';
-        if (is_readable($file)) {
-            $vars = parse_ini_file($file, false, INI_SCANNER_RAW);
-        } else {
-            $vars = [];
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
+$smtpHost = $_ENV['SMTP_HOST'];
+$smtpUser = $_ENV['SMTP_USER'];
+$smtpPass = $_ENV['SMTP_PASS'];
+$smtpPort = $_ENV['SMTP_PORT'];
+
+// Simple sanitizer
+function sanitize($data) {
+    return htmlspecialchars(strip_tags(trim($data)), ENT_QUOTES, 'UTF-8');
+}
+
+// Form submission
+$errors = [];
+$sent = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name    = sanitize($_POST['name']    ?? '');
+    $email   = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+    $subject = sanitize($_POST['subject'] ?? '');
+    $message = sanitize($_POST['message'] ?? '');
+
+    if (!$name)    $errors[] = 'Please enter your name.';
+    if (!$email)   $errors[] = 'Please enter a valid email address.';
+    if (!$subject) $errors[] = 'Please enter a subject.';
+    if (!$message) $errors[] = 'Please enter your message.';
+
+    if (empty($errors)) {
+        $mail = new PHPMailer(true);
+        try {
+            // SMTP setup
+            $mail->isSMTP();
+            $mail->Host       = $smtpHost;
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $smtpUser;
+            $mail->Password   = $smtpPass;
+            $mail->SMTPSecure = ($smtpPort == 465)
+                ? PHPMailer::ENCRYPTION_SMTPS
+                : PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = $smtpPort;
+
+            // From and to
+            $mail->setFrom($smtpUser, 'SPYRJA Contact Form');
+            $mail->addAddress($smtpUser);            // sends to your SPYRJA inbox
+            $mail->addReplyTo($email, $name);       // reply goes to visitor
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = '[SPYRJA Contact] ' . $subject;
+            $mail->Body    = "
+                <p><strong>From:</strong> {$name} &lt;{$email}&gt;</p>
+                <p><strong>Subject:</strong> {$subject}</p>
+                <hr>
+                <p>" . nl2br($message) . "</p>
+            ";
+            $mail->AltBody = "From: {$name} <{$email}>\nSubject: {$subject}\n\n{$message}";
+
+            $mail->send();
+            $sent = true;
+        } catch (Exception $e) {
+            $errors[] = 'Message could not be sent: ' . $mail->ErrorInfo;
         }
     }
-    return $vars[$key] ?? getenv($key) ?? $default;
 }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact SPYRJA</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; max-width: 600px; margin: auto; }
+    .error { color: #c00; }
+    .success { color: #080; }
+    form > div { margin-bottom: 1em; }
+    label { display: block; margin-bottom: .5em; }
+    input, textarea { width: 100%; padding: .5em; box-sizing: border-box; }
+    button { padding: .7em 1.2em; }
+  </style>
+</head>
+<body>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+<h1>Contact SPYRJA</h1>
 
-    if ($name === '' || $email === '' || $message === '') {
-        http_response_code(400);
-        echo 'Please fill in all required fields.';
-        exit;
-    }
+<?php if ($sent): ?>
+  <p class="success">Thank you! Your message has been sent.</p>
+<?php else: ?>
+  <?php if ($errors): ?>
+    <ul class="error">
+      <?php foreach ($errors as $err): ?>
+        <li><?= $err ?></li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
 
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->Host       = get_env('SMTP_HOST', 'smtp.gmail.com');
-        $mail->Port       = (int) get_env('SMTP_PORT', 587);
-        $mail->SMTPAuth   = true;
-        $mail->Username   = get_env('SMTP_USER');
-        $mail->Password   = get_env('SMTP_PASS');
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  <form method="post" action="">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<?= htmlspecialchars($_POST['name'] ?? '') ?>">
+    </div>
+    <div>
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+    </div>
+    <div>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" value="<?= htmlspecialchars($_POST['subject'] ?? '') ?>">
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6"><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+  </form>
+<?php endif; ?>
 
-        $from      = get_env('SMTP_FROM', get_env('SMTP_USER'));
-        $fromName  = get_env('SMTP_FROM_NAME', 'Spyrja Contact Form');
-        $recipient = get_env('SMTP_TO', 'samband@spyrja.com');
-
-        $mail->setFrom($from, $fromName);
-        $mail->addAddress($recipient);
-        $mail->addReplyTo($email, $name);
-
-        $mail->Subject = 'New contact form submission';
-        $mail->Body    = "Name: {$name}\nEmail: {$email}\n\n{$message}";
-
-        $mail->send();
-        http_response_code(200);
-        echo 'Thank you for your message!';
-    } catch (Exception $e) {
-        http_response_code(500);
-        echo 'Error sending message.';
-    }
-    
-} else {
-    http_response_code(405);
-    echo 'Method Not Allowed';
-}
+</body>
+</html>
