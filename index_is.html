@@ -3,20 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spyrja</title>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <title>Spyrja — Persónuleg aðstoðarþjónusta í Reykjavík</title>
+  <meta name="description" content="Spyrja er persónuleg aðstoðarþjónusta í Reykjavík: gæludýr, erindi, sendingar, innkaup, heimaþjónusta og bókanir. Við losum um tíma þinn.">
+  <link rel="canonical" href="https://spyrja.com/index_is.html">
+
+  <link rel="alternate" hreflang="en" href="https://spyrja.com/index.html">
+  <link rel="alternate" hreflang="is" href="https://spyrja.com/index_is.html">
+  <link rel="alternate" hreflang="x-default" href="https://spyrja.com/index.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SPYRJA">
+  <meta property="og:locale" content="is_IS">
+  <meta property="og:title" content="Spyrja — Persónuleg aðstoðarþjónusta í Reykjavík">
+  <meta property="og:description" content="Spyrja er persónuleg aðstoðarþjónusta í Reykjavík: gæludýr, erindi, sendingar, innkaup, heimaþjónusta og bókanir. Við losum um tíma þinn.">
+  <meta property="og:url" content="https://spyrja.com/index_is.html">
+  <meta property="og:image" content="https://spyrja.com/resources/img/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#002b51">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/style.css">
-  <link rel="icon" href="./resources/img/logo.png">
+
+  <link rel="icon" href="./resources/favicon/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./resources/favicon/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./resources/favicon/apple-touch-icon.png">
+
+  <script src="./scripts/main.js" defer></script>
 </head>
 <body>
   <header>
-    <a href="index_is.html"><img src="./resources/img/logo.png" alt="Spyrja - forsiða"></a>
-    <div class="language-switcher">
-      <a href="index_is.html" class="active">Íslenska</a> |
-      <a href="index.html">English</a>
-    </div>
+    <a href="index_is.html"><picture>
+        <source srcset="./resources/img/logo.webp" type="image/webp">
+        <img src="./resources/img/logo.png" alt="Spyrja — forsíða" width="200" height="200" fetchpriority="high">
+      </picture></a>
+    <nav class="language-switcher" aria-label="Language">
+      <a href="index_is.html" hreflang="is" lang="is" class="active" aria-current="page">Íslenska</a> |
+      <a href="index.html" hreflang="en" lang="en">English</a>
+    </nav>
     <div class="header-text">
-      <h1>SPYRJA</h1>
+      <h1 class="wordmark">SPYRJA</h1>
       <p>Losar um tíma þinn svo þú getir einbeitt þér að því sem skiptir mestu.</p>
     </div>
   </header>
@@ -31,44 +60,62 @@
     <section class="services">
       <h2 class="services-title">Þjónustur okkar</h2>
       <div class="service-item">
-        <img src="./resources/img/services/is/pet-care-is.png" alt="Service 1">
+        <picture>
+          <source srcset="./resources/img/services/is/pet-care-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/pet-care-is.png" alt="Teikning af hundi — gæsla og þjónusta dýra" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Gæsla & þjónusta dýra</h3>
+          <h3>Gæsla &amp; þjónusta dýra</h3>
           <p>Hvort sem um er að ræða hundagöngu, gæslu eða bráðaheimsóknir til dýralæknis, veitir SPYRJA annasömum gæludýraeigendum hugarró. Við sjáum einnig um fóðursendingar, lyf og snyrtitíma.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/is/errands-queue-is.png" alt="Service 2">
+        <picture>
+          <source srcset="./resources/img/services/is/errands-queue-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/errands-queue-is.png" alt="Teikning af biðröð — erindi og biðröð" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Erindi & biðröð</h3>
+          <h3>Erindi &amp; biðröð</h3>
           <p>Slepptu röðunum fyrir pakka, opinber skjöl eða afhendingu þvotts — við sjáum um það allt.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/is/pickup-deliv-is.png" alt="Service 3">
+        <picture>
+          <source srcset="./resources/img/services/is/pickup-deliv-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/pickup-deliv-is.png" alt="Teikning af sendibíl — sókn og afhending" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Sókn & afhending</h3>
+          <h3>Sókn &amp; afhending</h3>
           <p>Hröð og áreiðanleg sendlaþjónusta fyrir skjöl, gleymda hluti eða sérstakar gjafasendingar.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/is/shopping-is.png" alt="Service 4">
+        <picture>
+          <source srcset="./resources/img/services/is/shopping-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/shopping-is.png" alt="Teikning af innkaupapoka — innkaup og gjafaumsjón" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Innkaup & gjafaumsjón</h3>
+          <h3>Innkaup &amp; gjafaumsjón</h3>
           <p>Frá gjöfum á síðustu stundu til pökkunar og persónulegra kveðja breytum við verkefnum í hugullegar gjörðir.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/is/home-help-is.png" alt="Service 5">
+        <picture>
+          <source srcset="./resources/img/services/is/home-help-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/home-help-is.png" alt="Teikning af húsi — heimaþjónusta og samhæfing" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Heimaþjónusta & samhæfing</h3>
+          <h3>Heimaþjónusta &amp; samhæfing</h3>
           <p>Vantar þig ræstingar, handverksmenn eða flutninga? Við skipuleggjum og höfum eftirlit svo þú þurfir ekki.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/is/booking-is.png" alt="Service 6">
+        <picture>
+          <source srcset="./resources/img/services/is/booking-is.webp" type="image/webp">
+          <img src="./resources/img/services/is/booking-is.png" alt="Teikning af dagatali — bókanir og tímasetning" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Bókanir & tímasetning</h3>
+          <h3>Bókanir &amp; tímasetning</h3>
           <p>Snyrtitímar, bílaþjónusta, borðapantanir á veitingastöðum — jafnvel með skömmum fyrirvara.</p>
         </div>
       </div>
@@ -76,27 +123,38 @@
     <section class="contact">
       <h2>Hafðu samband</h2>
       <form class="contact-form" id="contact-form" action="./scripts/contact.php" method="post">
+        <input type="hidden" name="lang" value="is">
         <label for="name">Nafn og eftirnafn:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" maxlength="200" autocomplete="name" required>
+
         <label for="email">Netfang:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required>
+
         <label for="category">Flokkur:</label>
         <select id="category" name="category" required>
           <option value="" disabled selected>Veldu flokk</option>
           <option value="pet-care">Gæsla &amp; þjónusta dýra</option>
-          <option value="err-queue">Erindi &amp; biðröð</option>
-          <option value="pickup-deliv">Sókn &amp; afhending</option>
+          <option value="errands">Erindi &amp; biðröð</option>
+          <option value="pickup">Sókn &amp; afhending</option>
           <option value="shopping">Innkaup &amp; gjafaumsjón</option>
           <option value="home-help">Heimaþjónusta &amp; samhæfing</option>
           <option value="booking">Bókanir &amp; tímasetning</option>
         </select>
+
         <label for="message">Skilaboð:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
+
+        <!-- Honeypot: hidden from humans, irresistible to bots. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Skildu þennan reit eftir auðan</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
         <button type="submit">Senda</button>
       </form>
-      <div id="contact-feedback" class="contact-feedback hidden">
-        <div class="feedback-content"></div>
-        <button id="send-another" class="send-another-btn" style="display: none;">Senda aðra skilaboð</button>
+      <div id="contact-feedback" class="contact-feedback hidden" role="status" aria-live="polite" tabindex="-1">
+        <p class="feedback-content"></p>
+        <button type="button" id="send-another" class="send-another-btn">Senda önnur skilaboð</button>
       </div>
     </section>
   </main>
@@ -104,80 +162,5 @@
     <p>Hafðu samband: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
     <p><a href="privacy-policy_is.html">Persónuverndarstefna</a> | <a href="tos_is.html">Notkunarskilmálar</a></p>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const services = document.querySelector('.services');
-      const items = document.querySelectorAll('.service-item');
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('contact-success');
-      let triggered = false;
-
-      // Custom validation messages in Icelandic
-      form.querySelectorAll('[required]').forEach(field => {
-        field.addEventListener('invalid', function () {
-          if (this.validity.valueMissing)   this.setCustomValidity('Þennan reit verður að fylla út');
-          else if (this.validity.typeMismatch)  this.setCustomValidity('Sláðu inn gilt netfang');
-          else                              this.setCustomValidity('');
-        });
-      });
-
-      // Intersection Observer for revealing services
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px'
-      };
-
-      const observerCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(items).indexOf(entry.target);
-            setTimeout(() => {
-              entry.target.classList.add('show');
-            }, index * 120);
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      items.forEach((item) => {
-        observer.observe(item);
-      });
-
-      services.classList.add('visible');
-
-      const feedback = document.getElementById('contact-feedback');
-      const feedbackContent = feedback.querySelector('.feedback-content');
-      const sendAnotherBtn = document.getElementById('send-another');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        fetch(form.action, { method: 'POST', body: data })
-          .then(resp => {
-            if (!resp.ok) throw new Error(resp.statusText);
-            return resp.text();
-          })
-          .then((responseText) => {
-            feedbackContent.innerHTML = responseText;
-            feedback.classList.remove('hidden');
-            form.reset();
-            sendAnotherBtn.style.display = 'block';
-          })
-          .catch((error) => {
-            feedbackContent.innerHTML = `<div style="color: red;"><strong>Villa:</strong> ${error.message || 'Villa kom upp við að senda skilaboð.'}</div>`;
-            feedback.classList.remove('hidden');
-            sendAnotherBtn.style.display = 'block';
-          });
-      });
-
-      sendAnotherBtn.addEventListener('click', function () {
-        feedback.classList.add('hidden');
-        sendAnotherBtn.style.display = 'none';
-        feedbackContent.innerHTML = '';
-      });
-    });
-  </script>
 </body>
 </html>
