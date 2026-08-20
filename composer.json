@@ -1,5 +1,14 @@
 {
+    "name": "spyrja/website",
+    "description": "Bilingual (EN/IS) landing page for the Spyrja personal assistant service",
+    "type": "project",
+    "license": "proprietary",
     "require": {
+        "php": ">=8.1",
         "phpmailer/phpmailer": "^6.10"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     }
 }
