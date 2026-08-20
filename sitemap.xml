@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://spyrja.com/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spyrja.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="is" href="https://spyrja.com/index_is.html"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://spyrja.com/index_is.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spyrja.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="is" href="https://spyrja.com/index_is.html"/>
+    <priority>1.0</priority>
+  </url>
+  <url><loc>https://spyrja.com/privacy-policy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://spyrja.com/privacy-policy_is.html</loc><priority>0.3</priority></url>
+  <url><loc>https://spyrja.com/tos.html</loc><priority>0.3</priority></url>
+  <url><loc>https://spyrja.com/tos_is.html</loc><priority>0.3</priority></url>
+</urlset>
