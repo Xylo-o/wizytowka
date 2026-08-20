@@ -92,9 +92,6 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-.services.visible {
-  opacity: 1;
-}
 .service-item {
   display: flex;
   align-items: center;
@@ -102,6 +99,9 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.5s ease, transform 1.5s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .services, .sevice-item { opacity: 1; transform: none; transition: none; }
 }
 .service-item.show {
   opacity: 1;

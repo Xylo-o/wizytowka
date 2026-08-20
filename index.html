@@ -123,10 +123,9 @@
       }
 
       function handleScroll() {
-        if (!triggered && window.scrollY > 50) {
-          triggered = true;
-          window.removeEventListener('scroll', handleScroll);
-          revealServices();
+        if (!('IntersectionObserver' in window)) {
+          services.classList.add('visible');
+          items.forEach(i => i.classList.add('show'));
         }
       }
 
