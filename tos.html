@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - Spyrja</title>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <title>Terms of Service — Spyrja</title>
+  <meta name="description" content="The terms that govern your use of the Spyrja website and services.">
+  <link rel="canonical" href="https://spyrja.com/tos.html">
+
+  <link rel="alternate" hreflang="en" href="https://spyrja.com/tos.html">
+  <link rel="alternate" hreflang="is" href="https://spyrja.com/tos_is.html">
+  <link rel="alternate" hreflang="x-default" href="https://spyrja.com/tos.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SPYRJA">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Terms of Service — Spyrja">
+  <meta property="og:description" content="The terms that govern your use of the Spyrja website and services.">
+  <meta property="og:url" content="https://spyrja.com/tos.html">
+  <meta property="og:image" content="https://spyrja.com/resources/img/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#002b51">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/style.css">
-  <link rel="icon" href="./resources/img/logo.png">
+
+  <link rel="icon" href="./resources/favicon/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./resources/favicon/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./resources/favicon/apple-touch-icon.png">
+
+  <script src="./scripts/main.js" defer></script>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="./resources/img/logo.png" alt="Spyrja - home"></a>
-    <div class="language-switcher">
-      <a href="tos_is.html">Íslenska</a> |
-      <a href="tos.html" class="active">English</a>
-    </div>
+    <a href="index.html"><picture>
+        <source srcset="./resources/img/logo.webp" type="image/webp">
+        <img src="./resources/img/logo.png" alt="Spyrja — home" width="200" height="200" fetchpriority="high">
+      </picture></a>
+    <nav class="language-switcher" aria-label="Language">
+      <a href="tos_is.html" hreflang="is" lang="is">Íslenska</a> |
+      <a href="tos.html" hreflang="en" lang="en" class="active" aria-current="page">English</a>
+    </nav>
     <div class="header-text">
-      <h1>SPYRJA</h1>
-      <p>SPYRJA frees your time so you can focus on what matters most.</p>
+      <p class="wordmark">SPYRJA</p>
+      <p>Frees your time so you can focus on what matters most.</p>
     </div>
   </header>
-  <main>
+  <main class="legal">
     <h1>Terms of Service</h1>
     <p><strong>Effective Date:</strong> June 25, 2025</p>
 
@@ -103,5 +132,9 @@
       <p>Last updated June&nbsp;25,&nbsp;2025.</p>
     </section>
   </main>
+  <footer>
+    <p>Contact us: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="tos.html">Terms of Service</a></p>
+  </footer>
 </body>
 </html>
