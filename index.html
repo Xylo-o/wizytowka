@@ -3,20 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spyrja</title>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <title>Spyrja — Personal Assistant Service in Reykjavík</title>
+  <meta name="description" content="Spyrja is a Reykjavík personal assistant service: pet care, errands, deliveries, shopping, home help and bookings. We free your time so you can focus on what matters most.">
+  <link rel="canonical" href="https://spyrja.com/index.html">
+
+  <link rel="alternate" hreflang="en" href="https://spyrja.com/index.html">
+  <link rel="alternate" hreflang="is" href="https://spyrja.com/index_is.html">
+  <link rel="alternate" hreflang="x-default" href="https://spyrja.com/index.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SPYRJA">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Spyrja — Personal Assistant Service in Reykjavík">
+  <meta property="og:description" content="Spyrja is a Reykjavík personal assistant service: pet care, errands, deliveries, shopping, home help and bookings. We free your time so you can focus on what matters most.">
+  <meta property="og:url" content="https://spyrja.com/index.html">
+  <meta property="og:image" content="https://spyrja.com/resources/img/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#002b51">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/style.css">
-  <link rel="icon" href="./resources/img/logo.png">
+
+  <link rel="icon" href="./resources/favicon/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./resources/favicon/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./resources/favicon/apple-touch-icon.png">
+
+  <script src="./scripts/main.js" defer></script>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="./resources/img/logo.png" alt="Spyrja - home"></a>
-    <div class="language-switcher">
-      <a href="index_is.html">Íslenska</a> | 
-      <a href="index.html" class="active">English</a>
-    </div>
+    <a href="index.html"><picture>
+        <source srcset="./resources/img/logo.webp" type="image/webp">
+        <img src="./resources/img/logo.png" alt="Spyrja — home" width="200" height="200" fetchpriority="high">
+      </picture></a>
+    <nav class="language-switcher" aria-label="Language">
+      <a href="index_is.html" hreflang="is" lang="is">Íslenska</a> |
+      <a href="index.html" hreflang="en" lang="en" class="active" aria-current="page">English</a>
+    </nav>
     <div class="header-text">
-      <h1>SPYRJA</h1>
+      <h1 class="wordmark">SPYRJA</h1>
       <p>Frees your time so you can focus on what matters most.</p>
     </div>
   </header>
@@ -31,44 +60,62 @@
     <section class="services">
       <h2 class="services-title">Our Services</h2>
       <div class="service-item">
-        <img src="./resources/img/services/en/pet-care.png" alt="Service 1">
+        <picture>
+          <source srcset="./resources/img/services/en/pet-care.webp" type="image/webp">
+          <img src="./resources/img/services/en/pet-care.png" alt="Illustration of a dog — pet care and services" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Pet Care & Services</h3>
+          <h3>Pet Care &amp; Services</h3>
           <p>Whether it’s dog walking, pet sitting, or emergency vet visits, SPYRJA provides peace of mind for busy pet owners. We also take care of pet food pickups, medications, and grooming appointments.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/en/err-queue.png" alt="Service 2">
+        <picture>
+          <source srcset="./resources/img/services/en/err-queue.webp" type="image/webp">
+          <img src="./resources/img/services/en/err-queue.png" alt="Illustration of a queue ticket — errands and queuing" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Errands & Queuing</h3>
+          <h3>Errands &amp; Queuing</h3>
           <p>Skip the lines for packages, official paperwork, or laundry drop-offs — we handle it all.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/en/pickup-deliv.png" alt="Service 3">
+        <picture>
+          <source srcset="./resources/img/services/en/pickup-deliv.webp" type="image/webp">
+          <img src="./resources/img/services/en/pickup-deliv.png" alt="Illustration of a delivery van — pickup and delivery" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Pickup & Delivery</h3>
+          <h3>Pickup &amp; Delivery</h3>
           <p>Fast, reliable courier service for documents, forgotten items, or special gift deliveries.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/en/shop.png" alt="Service 4">
+        <picture>
+          <source srcset="./resources/img/services/en/shop.webp" type="image/webp">
+          <img src="./resources/img/services/en/shop.png" alt="Illustration of a shopping bag — shopping and gift handling" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Shopping & Gift Handling</h3>
+          <h3>Shopping &amp; Gift Handling</h3>
           <p>From last-minute gifts to wrapping and personalized notes, we turn tasks into thoughtful gestures.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/en/home-help.png" alt="Service 5">
+        <picture>
+          <source srcset="./resources/img/services/en/home-help.webp" type="image/webp">
+          <img src="./resources/img/services/en/home-help.png" alt="Illustration of a house — home help and coordination" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Home Help & Coordination</h3>
+          <h3>Home Help &amp; Coordination</h3>
           <p>Need cleaners, handymen, or movers? We organize and supervise so you don’t have to.</p>
         </div>
       </div>
       <div class="service-item">
-        <img src="./resources/img/services/en/book.png" alt="Service 6">
+        <picture>
+          <source srcset="./resources/img/services/en/book.webp" type="image/webp">
+          <img src="./resources/img/services/en/book.png" alt="Illustration of a calendar — booking and scheduling" width="260" height="260" loading="lazy" decoding="async">
+        </picture>
         <div class="service-text">
-          <h3>Booking & Scheduling</h3>
+          <h3>Booking &amp; Scheduling</h3>
           <p>Beauty appointments, car service, restaurant reservations — even on short notice.</p>
         </div>
       </div>
@@ -76,27 +123,38 @@
     <section class="contact">
       <h2>Contact</h2>
       <form class="contact-form" id="contact-form" action="./scripts/contact.php" method="post">
+        <input type="hidden" name="lang" value="en">
         <label for="name">Name and surname:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" maxlength="200" autocomplete="name" required>
+
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required>
+
         <label for="category">Category:</label>
         <select id="category" name="category" required>
           <option value="" disabled selected>Select a category</option>
           <option value="pet-care">Pet Care &amp; Services</option>
-          <option value="err-queue">Errands &amp; Queuing</option>
-          <option value="pickup-deliv">Pickup &amp; Delivery</option>
+          <option value="errands">Errands &amp; Queuing</option>
+          <option value="pickup">Pickup &amp; Delivery</option>
           <option value="shopping">Shopping &amp; Gift Handling</option>
           <option value="home-help">Home Help &amp; Coordination</option>
           <option value="booking">Booking &amp; Scheduling</option>
         </select>
+
         <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
+
+        <!-- Honeypot: hidden from humans, irresistible to bots. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
         <button type="submit">Submit</button>
       </form>
-      <div id="contact-feedback" class="contact-feedback hidden">
-        <div class="feedback-content"></div>
-        <button id="send-another" class="send-another-btn" style="display: none;">Send another message</button>
+      <div id="contact-feedback" class="contact-feedback hidden" role="status" aria-live="polite" tabindex="-1">
+        <p class="feedback-content"></p>
+        <button type="button" id="send-another" class="send-another-btn">Send another message</button>
       </div>
     </section>
   </main>
@@ -104,71 +162,5 @@
     <p>Contact us: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
     <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="tos.html">Terms of Service</a></p>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const services = document.querySelector('.services');
-      const items = document.querySelectorAll('.service-item');
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('contact-success');
-      let triggered = false;
-
-      // Intersection Observer for revealing services
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px'
-      };
-
-      const observerCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(items).indexOf(entry.target);
-            setTimeout(() => {
-              entry.target.classList.add('show');
-            }, index * 120);
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      items.forEach((item) => {
-        observer.observe(item);
-      });
-
-      services.classList.add('visible');
-
-      const feedback = document.getElementById('contact-feedback');
-      const feedbackContent = feedback.querySelector('.feedback-content');
-      const sendAnotherBtn = document.getElementById('send-another');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        fetch(form.action, { method: 'POST', body: data })
-          .then(resp => {
-            if (!resp.ok) throw new Error(resp.statusText);
-            return resp.text();
-          })
-          .then((responseText) => {
-            feedbackContent.innerHTML = responseText;
-            feedback.classList.remove('hidden');
-            form.reset();
-            sendAnotherBtn.style.display = 'block';
-          })
-          .catch((error) => {
-            feedbackContent.innerHTML = `<div style="color: red;"><strong>Error:</strong> ${error.message || 'Error sending message.'}</div>`;
-            feedback.classList.remove('hidden');
-            sendAnotherBtn.style.display = 'block';
-          });
-      });
-
-      sendAnotherBtn.addEventListener('click', function () {
-        feedback.classList.add('hidden');
-        sendAnotherBtn.style.display = 'none';
-        feedbackContent.innerHTML = '';
-      });
-    });
-  </script>
 </body>
 </html>
