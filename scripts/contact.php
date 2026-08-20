@@ -31,10 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Sending mail
-    $mail = new PHPMailer(true);
     try {
-        $mail->setFrom(getenv('MAIL_TO'), 'Spyrja Contact Form');
-        $mail->addAddress(getenv('MAIL_FROM'));
+        $mail->setFrom(getenv('MAIL_FROM'), 'Spyrja Contact Form');
+        $mail->addAddress(getenv('MAIL_TO'));
         $mail->addReplyTo($email, $name);
 
         $mail->Subject = 'New contact form submission';
