@@ -94,9 +94,9 @@
         <textarea id="message" name="message" rows="5" required></textarea>
         <button type="submit">Submit</button>
       </form>
-      <div id="contact-success" class="contact-success hidden">
-        <div class="checkmark">&#10003;</div>
-        <p>Thank you for contacting us.</p>
+      <div id="contact-feedback" class="contact-feedback hidden">
+        <div class="feedback-content"></div>
+        <button id="send-another" class="send-another-btn" style="display: none;">Send another message</button>
       </div>
     </section>
   </main>
@@ -138,21 +138,35 @@
 
       services.classList.add('visible');
 
+      const feedback = document.getElementById('contact-feedback');
+      const feedbackContent = feedback.querySelector('.feedback-content');
+      const sendAnotherBtn = document.getElementById('send-another');
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         const data = new FormData(form);
         fetch(form.action, { method: 'POST', body: data })
           .then(resp => {
-            if (!resp.ok) throw new Error();
+            if (!resp.ok) throw new Error(resp.statusText);
             return resp.text();
           })
-          .then(() => {
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
+          .then((responseText) => {
+            feedbackContent.innerHTML = responseText;
+            feedback.classList.remove('hidden');
+            form.reset();
+            sendAnotherBtn.style.display = 'block';
           })
-          .catch(() => {
-            alert('Error sending message.');
+          .catch((error) => {
+            feedbackContent.innerHTML = `<div style="color: red;"><strong>Error:</strong> ${error.message || 'Error sending message.'}</div>`;
+            feedback.classList.remove('hidden');
+            sendAnotherBtn.style.display = 'block';
           });
+      });
+
+      sendAnotherBtn.addEventListener('click', function () {
+        feedback.classList.add('hidden');
+        sendAnotherBtn.style.display = 'none';
+        feedbackContent.innerHTML = '';
       });
     });
   </script>

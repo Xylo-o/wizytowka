@@ -222,6 +222,39 @@ main { max-width: 800px; margin: 0 auto 20px; padding: 0 20px; }
   justify-content: center;
   margin-bottom: 20px;
 }
+.contact-feedback {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.contact-feedback.hidden {
+  display: none;
+}
+.contact-feedback .feedback-content {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+.send-another-btn {
+  background-color: #033663;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.send-another-btn:hover {
+  background-color: #002b51;
+}
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.4rem; }
   header {
