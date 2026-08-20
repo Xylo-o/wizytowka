@@ -122,25 +122,31 @@
         });
       });
 
-      function revealServices() {
-        services.classList.add('visible');
-        window.scrollTo({ top: services.offsetTop, behavior: 'smooth' });
-        items.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('show');
-          }, 500 + index * 500);
+      // Intersection Observer for revealing services
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px'
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(items).indexOf(entry.target);
+            setTimeout(() => {
+              entry.target.classList.add('show');
+            }, index * 120);
+            observer.unobserve(entry.target);
+          }
         });
-      }
+      };
 
-      function handleScroll() {
-        if (!triggered && window.scrollY > 50) {
-          triggered = true;
-          window.removeEventListener('scroll', handleScroll);
-          revealServices();
-        }
-      }
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-      window.addEventListener('scroll', handleScroll);
+      items.forEach((item) => {
+        observer.observe(item);
+      });
+
+      services.classList.add('visible');
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
