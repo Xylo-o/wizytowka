@@ -1,0 +1,38 @@
+# ----------------------------------------------------------------------
+# SPYRJA — Apache configuration
+# Delete this file if you deploy behind nginx and port the rules instead.
+# ----------------------------------------------------------------------
+
+DirectoryIndex index.html
+
+# --- Block direct access to code and configuration --------------------
+RedirectMatch 404 ^/vendor/
+RedirectMatch 404 ^/composer\.(json|lock)$
+RedirectMatch 404 ^/\.env
+
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# --- Security headers -------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- Caching ----------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType text/html  "access plus 1 hour"
+</IfModule>
+
+# --- Compression ------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
+</IfModule>
