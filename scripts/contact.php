@@ -14,7 +14,10 @@ $mail->Username   = getenv('SMTP_USER');
 $mail->Password   = getenv('SMTP_PASS');
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port       = (int) getenv('SMTP_PORT');
-$mail->CharSet    = 'UTF-8';  
+$mail->CharSet    = 'UTF-8';
+
+$allowed  = ['pet-care','errands','pickup','shopping','home-help','booking'];
+$category = in_array($_POST['category'] ?? '', $allowed, true) ? $ $_POST['category'] : 'other';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
