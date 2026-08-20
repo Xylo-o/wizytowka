@@ -115,10 +115,9 @@
       // Custom validation messages in Icelandic
       form.querySelectorAll('[required]').forEach(field => {
         field.addEventListener('invalid', function () {
-          this.setCustomValidity('Þennan reit verður að fylla út');
-        });
-        field.addEventListener('input', function () {
-          this.setCustomValidity('');
+          if (this.validity.valueMissing)   this.setCustomValidity('Þennan reit verður að fylla út');
+          else if (this.validity.typeMismatch)  this.setCustomValidity('Sláðu inn gilt netfang');
+          else                              this.setCustomValidity('');
         });
       });
 
