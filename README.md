@@ -18,7 +18,7 @@ Static front-end, zero build step, one hardened PHP endpoint for the contact for
 
 ![Build](https://img.shields.io/badge/build_step-none-brightgreen?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/runtime_dependencies-1-blue?style=flat-square)
-![Page weight](https://img.shields.io/badge/assets-416_KB-brightgreen?style=flat-square)
+![Page weight](https://img.shields.io/badge/assets-248_KB-brightgreen?style=flat-square)
 ![Languages](https://img.shields.io/badge/i18n-EN_%7C_IS-informational?style=flat-square)
 ![No JS required](https://img.shields.io/badge/works_without_JS-yes-success?style=flat-square)
 ![License](https://img.shields.io/badge/license-proprietary-lightgrey?style=flat-square)
@@ -72,7 +72,7 @@ Every page exists twice: once in English, once in Icelandic, as parallel static 
 | 🛡️ | **Hardened contact endpoint** | Honeypot, rate limit, server-side validation, header-injection guard |
 | 📮 | **AJAX form with a no-JS fallback** | `fetch()` when available, plain `POST` when not |
 | ♿ | **Keyboard &amp; screen-reader ready** | Visible focus, live-region feedback, descriptive alt text |
-| 🪶 | **416 KB of assets, total** | WebP with PNG fallbacks, lazy loading, no layout shift |
+| 🪶 | **248 KB of assets, total** | Palette-quantized PNG at 2× density, lazy loading, no layout shift |
 | ⚖️ | **Legal pages included** | Privacy Policy and Terms of Service, both languages |
 | 🚫 | **No cookies, no trackers** | Nothing to consent to, no banner needed |
 
@@ -110,7 +110,7 @@ wizytowka/
 ├── resources/
 │   ├── favicon/                 # 32 / 180 / 192 px icons
 │   └── img/
-│       ├── logo.png · logo.webp
+│       ├── logo.png
 │       └── services/
 │           ├── en/              # service tiles, English captions
 │           └── is/              # service tiles, Icelandic captions
@@ -312,10 +312,26 @@ constant in `contact.php`.
 - Descriptive, per-language `alt` text on all thirteen images.
 - `hreflang` pairs, `canonical`, Open Graph and `theme-color` on all six pages.
 - Full `prefers-reduced-motion` and `forced-colors` support.
-- WebP with PNG fallbacks via `<picture>`, explicit `width`/`height` (no layout shift), and
-  `loading="lazy"` on below-the-fold tiles.
+- Explicit `width`/`height` on every image (no layout shift) and `loading="lazy"` on
+  below-the-fold tiles.
+- A single image format. See [Why PNG and not WebP](#why-png-and-not-webp) below.
 
-Total asset weight is **416 KB**, down from 2.7 MB.
+Total asset weight is **248 KB**, down from 2.7 MB.
+
+### Why PNG and not WebP
+
+The service tiles and the logo are flat two-colour illustrations, and for that kind of
+artwork a palette-quantized PNG beats WebP outright — the 520 px tiles land at roughly
+17 KB each and the logo at 5 KB, smaller than the WebP equivalents were.
+
+There is also a correctness argument. Serving both formats means `<picture>` with a
+`<source type="image/webp">`, and **`<picture>` does not fall back when a file is missing.**
+The browser commits to a `<source>` based on declared format support alone; if that URL
+404s, the image is simply broken and the inner `<img>` is never tried. That inner `<img>`
+only ever helps browsers that cannot decode WebP at all.
+
+So dual-format buys nothing here and adds a way for the page to break. One format, one file
+per image, nothing to keep in sync.
 
 ---
 
