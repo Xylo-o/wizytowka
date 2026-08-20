@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Spyrja</title>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <title>Privacy Policy — Spyrja</title>
+  <meta name="description" content="How Spyrja collects, uses and protects the personal data you submit through this website.">
+  <link rel="canonical" href="https://spyrja.com/privacy-policy.html">
+
+  <link rel="alternate" hreflang="en" href="https://spyrja.com/privacy-policy.html">
+  <link rel="alternate" hreflang="is" href="https://spyrja.com/privacy-policy_is.html">
+  <link rel="alternate" hreflang="x-default" href="https://spyrja.com/privacy-policy.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SPYRJA">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Privacy Policy — Spyrja">
+  <meta property="og:description" content="How Spyrja collects, uses and protects the personal data you submit through this website.">
+  <meta property="og:url" content="https://spyrja.com/privacy-policy.html">
+  <meta property="og:image" content="https://spyrja.com/resources/img/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#002b51">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/style.css">
-  <link rel="icon" href="./resources/img/logo.png">
+
+  <link rel="icon" href="./resources/favicon/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./resources/favicon/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./resources/favicon/apple-touch-icon.png">
+
+  <script src="./scripts/main.js" defer></script>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="./resources/img/logo.png" alt="Spyrja - home"></a>
-    <div class="language-switcher">
-      <a href="privacy-policy_is.html">Íslenska</a> |
-      <a href="privacy-policy.html" class="active">English</a>
-    </div>
+    <a href="index.html"><picture>
+        <source srcset="./resources/img/logo.webp" type="image/webp">
+        <img src="./resources/img/logo.png" alt="Spyrja — home" width="200" height="200" fetchpriority="high">
+      </picture></a>
+    <nav class="language-switcher" aria-label="Language">
+      <a href="privacy-policy_is.html" hreflang="is" lang="is">Íslenska</a> |
+      <a href="privacy-policy.html" hreflang="en" lang="en" class="active" aria-current="page">English</a>
+    </nav>
     <div class="header-text">
-      <h1>SPYRJA</h1>
-      <p>SPYRJA frees your time so you can focus on what matters most.</p>
+      <p class="wordmark">SPYRJA</p>
+      <p>Frees your time so you can focus on what matters most.</p>
     </div>
   </header>
-  <main>
+  <main class="legal">
     <h1>Privacy Policy</h1>
     <p><strong>Effective Date:</strong> June 25, 2025</p>
 
@@ -32,9 +61,13 @@
       </ul>
       <h3>Automatically Collected Information</h3>
       <ul>
-        <li>Usage Data: pages visited, time spent, links clicked, and other actions on the site.</li>
-        <li>Technical Data: IP address, browser type, operating system, device identifiers, and referral URLs.</li>
-        <li>Cookies and Similar Technologies: small files stored on your device to enhance website functionality and track usage.</li>
+        <li>Server Logs: our hosting provider records the IP address, browser type and requested URL of each visit, as is standard for any web server.</li>
+        <li>Anti-Spam Data: when you submit the contact form we store your IP address temporarily in order to rate-limit abusive submissions.</li>
+      </ul>
+      <p><strong>This website does not use cookies</strong> and does not run any analytics or advertising trackers.</p>
+      <h3>Third-Party Services</h3>
+      <ul>
+        <li>Google Fonts: the Montserrat typeface is loaded from Google&rsquo;s servers, which means your IP address is transmitted to Google when a page loads. See Google&rsquo;s privacy policy for details.</li>
       </ul>
     </section>
 
@@ -66,7 +99,7 @@
 
     <section>
       <h2>5. Cookies and Tracking</h2>
-      <p>You can manage or disable cookies through your browser settings, but some features may not function properly if cookies are blocked.</p>
+      <p>We do not set cookies and we do not use analytics, advertising or tracking technologies of any kind. No consent banner is required, because there is nothing to consent to.</p>
     </section>
 
     <section>
@@ -115,5 +148,9 @@
       </ul>
     </section>
   </main>
+  <footer>
+    <p>Contact us: <a href="mailto:samband@spyrja.com">samband@spyrja.com</a></p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="tos.html">Terms of Service</a></p>
+  </footer>
 </body>
 </html>
